@@ -1,3 +1,5 @@
+package com.invillia.jpa;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 import javax.persistence.TypedQuery;
@@ -20,9 +22,8 @@ public class TeamDAO {
     }
 
     public List<Team> buscarTudo(){
-
         final TypedQuery<Team> teams = entityManager.createQuery("from Team",Team.class);
-        return teams.getResultList();
+        return teams.getResultList();                                  //classe com.invillia.jpa.Team
     }
 
     public Team buscarId(final Long id){

@@ -1,7 +1,10 @@
+package com.invillia.jpa;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
-@Table(name = "times")
+@Table(name = "times") //bancode dados
 public class Team {
 
     @Id
@@ -10,6 +13,9 @@ public class Team {
 
     @Column(name = "nome_time", nullable = false)
     private String name;
+
+    @OneToMany(mappedBy = "team") //, cascade = CascadeType.REMOVE)
+    private List<Member> members;
 
     public Team() {
     }
@@ -36,6 +42,6 @@ public class Team {
 
     @Override
     public String toString() {
-        return "Team " + id_time + ", " + name;
+        return "Team " + id_time +" - " + name;
     }
 }
